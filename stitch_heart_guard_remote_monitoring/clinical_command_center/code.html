@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#c4c4df",
+                        "on-secondary-fixed": "#181a2e",
+                        "surface-bright": "#f5fafc",
+                        "on-background": "#171c1e",
+                        "secondary-container": "#ddddf9",
+                        "surface": "#f5fafc",
+                        "tertiary-fixed": "#d7e3fa",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#e8efff",
+                        "on-tertiary-fixed-variant": "#3c475a",
+                        "on-primary-fixed-variant": "#930018",
+                        "surface-container-highest": "#dee3e5",
+                        "primary-fixed": "#ffdad7",
+                        "on-primary-container": "#ffeae8",
+                        "background": "#f5fafc",
+                        "surface-tint": "#bf0022",
+                        "on-primary-fixed": "#410005",
+                        "inverse-on-surface": "#ecf1f3",
+                        "surface-container-low": "#eff4f6",
+                        "on-surface-variant": "#5d3f3d",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#171c1e",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#616d81",
+                        "on-tertiary-fixed": "#101c2c",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#5f6178",
+                        "tertiary-fixed-dim": "#bbc7dd",
+                        "secondary": "#5b5d74",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#e0e0fc",
+                        "on-secondary-fixed-variant": "#43455b",
+                        "inverse-surface": "#2c3133",
+                        "surface-container": "#eaeff1",
+                        "tertiary": "#495567",
+                        "outline": "#926e6c",
+                        "primary-container": "#d90429",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#ffb3af",
+                        "surface-container-high": "#e4e9eb",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#d6dbdd",
+                        "inverse-primary": "#ffb3af",
+                        "primary": "#ac001e",
+                        "outline-variant": "#e7bcba",
+                        "surface-variant": "#dee3e5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter-mobile": "12px",
+                        "md": "24px",
+                        "margin-mobile": "16px",
+                        "xs": "4px",
+                        "base": "8px",
+                        "sm": "12px",
+                        "xl": "64px",
+                        "lg": "40px"
+                    },
+                    "fontFamily": {
+                        "display-critical": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "data-mono": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-critical": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "data-mono": ["20px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pulse-red {
+            animation: pulse-red 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse-red {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .4; }
+        }
+        .waveform-path {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: dash 5s linear infinite;
+        }
+        @keyframes dash {
+            to { stroke-dashoffset: 0; }
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface flex min-h-screen">
+<!-- Sidebar Navigation -->
+<aside class="h-screen w-64 left-0 sticky bg-surface-container-low border-r border-outline-variant flex flex-col py-md">
+<div class="px-md mb-lg">
+<h1 class="font-headline-md text-headline-md text-on-surface">VIGILANT CORE</h1>
+<p class="font-label-caps text-label-caps text-secondary uppercase tracking-widest mt-xs">Terminal 04</p>
+<p class="font-label-caps text-label-caps text-primary mt-xs flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-primary pulse-red"></span>
+                Active Monitoring
+            </p>
+</div>
+<nav class="flex-grow flex flex-col gap-xs px-base">
+<a class="flex items-center gap-sm px-md py-sm bg-primary text-on-primary font-bold shadow-sm rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="monitor_heart">monitor_heart</span>
+<span class="font-label-caps text-label-caps">Live Monitoring</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm text-secondary hover:bg-surface-container-high hover:translate-x-1 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-caps text-label-caps">Patient Directory</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm text-secondary hover:bg-surface-container-high hover:translate-x-1 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="emergency_home">emergency_home</span>
+<span class="font-label-caps text-label-caps">Critical Alerts</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm text-secondary hover:bg-surface-container-high hover:translate-x-1 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-caps text-label-caps">Diagnostics</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm text-secondary hover:bg-surface-container-high hover:translate-x-1 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="admin_panel_settings">admin_panel_settings</span>
+<span class="font-label-caps text-label-caps">System Admin</span>
+</a>
+</nav>
+<div class="mt-auto px-base flex flex-col gap-sm">
+<button class="w-full py-sm bg-primary-container text-on-primary-container font-bold rounded hover:opacity-90 transition-opacity flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined" data-icon="emergency">emergency</span>
+                EMERGENCY CALL
+            </button>
+<div class="border-t border-outline-variant pt-sm">
+<a class="flex items-center gap-sm px-md py-xs text-secondary font-label-caps text-label-caps" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+                    Support
+                </a>
+<a class="flex items-center gap-sm px-md py-xs text-secondary font-label-caps text-label-caps" href="#">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+                    Logs
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-grow flex flex-col">
+<!-- Top App Bar -->
+<header class="w-full top-0 sticky z-50 bg-surface border-b border-outline-variant h-16 flex justify-between items-center px-md">
+<div class="flex items-center gap-md">
+<div class="relative">
+<span class="material-symbols-outlined text-secondary" data-icon="search">search</span>
+<input class="ml-sm bg-transparent border-none focus:ring-0 text-body-md w-64" placeholder="Search patient ID or bed..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex gap-md text-secondary">
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined" data-icon="emergency">emergency</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</div>
+</div>
+<div class="flex items-center gap-sm border-l border-outline-variant pl-lg">
+<div class="text-right">
+<p class="font-label-caps text-label-caps text-on-surface leading-none">Chief Med Officer</p>
+<p class="text-[10px] text-secondary">ID: V-04-A1</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-high border border-outline-variant overflow-hidden">
+<img alt="Chief Medical Officer Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a senior medical official in a clean white lab coat, set against a minimalist clinical background with soft, cool lighting. The style is ultra-high definition, professional, and corporate, emphasizing authority and clinical precision in a modern healthcare setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQXMCVgCZLdGmcmYdzY0S3oHaRaGbeyi99f3b9StCRkyzNZiPJ5Of_nv9QzRSnag-w7_4DNx4IydJRub79UoywIH703iS5LJo9p1UvYQJkMc7ra_eA-GjsG22p3EOyNI7n44u2R6-ufM0Ev2mVBw3FfuRC9IT-j7UzZVRmS7H3bUgee0JM_FbDp1mKzgVlPmwnaFbMgpLkRBP42ok1SDnm_wEFKz30j_POh5DSSTs1YYix1z_lM6KMA-IryRu0HUgcs7wj4JPmN7s"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-md space-y-md">
+<!-- System Status Header -->
+<div class="flex justify-between items-end bg-surface-container-lowest p-md rounded border border-outline-variant shadow-sm">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Central Monitoring Hub</h2>
+<p class="font-body-md text-secondary mt-xs">Displaying 24 Active Physiological Streams • System Sync: 100%</p>
+</div>
+<div class="flex gap-sm">
+<div class="px-sm py-xs bg-surface-container text-on-surface rounded border border-outline-variant flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+<span class="font-label-caps text-label-caps">21 STABLE</span>
+</div>
+<div class="px-sm py-xs bg-surface-container text-on-surface rounded border border-outline-variant flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+<span class="font-label-caps text-label-caps">2 ALERT</span>
+</div>
+<div class="px-sm py-xs bg-primary-container text-on-primary-container rounded border border-primary flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-white pulse-red"></span>
+<span class="font-label-caps text-label-caps">1 CRITICAL</span>
+</div>
+</div>
+</div>
+<!-- Bento Grid of Patient Monitors -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-md">
+<!-- Patient Card: CRITICAL -->
+<div class="bg-surface border-2 border-primary rounded p-sm shadow-sm relative overflow-hidden group">
+<div class="absolute inset-0 bg-primary opacity-[0.03] pointer-events-none"></div>
+<div class="flex justify-between items-start mb-base">
+<div>
+<p class="font-label-caps text-label-caps text-primary">BED 402 • J. DOE</p>
+<p class="text-[10px] text-secondary">Patient ID: 8829-X</p>
+</div>
+<span class="px-xs py-[2px] bg-primary text-on-primary font-label-caps text-[10px] rounded">CRITICAL</span>
+</div>
+<div class="flex items-center justify-between py-xs">
+<div class="flex items-baseline gap-xs">
+<span class="font-display-critical text-display-critical text-primary">142</span>
+<span class="font-label-caps text-label-caps text-secondary">BPM</span>
+</div>
+<div class="h-12 w-32">
+<svg class="w-full h-full" viewbox="0 0 100 40">
+<path d="M0 20 L10 20 L15 5 L25 35 L30 20 L45 20 L50 10 L60 30 L65 20 L80 20 L85 0 L95 40 L100 20" fill="none" stroke="#ac001e" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-sm mt-base pt-base border-t border-outline-variant">
+<div>
+<p class="font-label-caps text-label-caps text-secondary">SpO2</p>
+<p class="font-data-mono text-data-mono text-primary">88%</p>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-secondary">BP</p>
+<p class="font-data-mono text-data-mono text-primary">160/110</p>
+</div>
+</div>
+</div>
+<!-- Patient Card: ALERT -->
+<div class="bg-surface border border-yellow-500 rounded p-sm shadow-sm">
+<div class="flex justify-between items-start mb-base">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface">BED 408 • R. SMITH</p>
+<p class="text-[10px] text-secondary">Patient ID: 4412-K</p>
+</div>
+<span class="px-xs py-[2px] bg-yellow-500 text-on-surface font-label-caps text-[10px] rounded">ALERT</span>
+</div>
+<div class="flex items-center justify-between py-xs">
+<div class="flex items-baseline gap-xs">
+<span class="font-display-critical text-display-critical text-on-surface">112</span>
+<span class="font-label-caps text-label-caps text-secondary">BPM</span>
+</div>
+<div class="h-12 w-32">
+<svg class="w-full h-full" viewbox="0 0 100 40">
+<path d="M0 20 L15 20 L20 10 L30 30 L35 20 L55 20 L60 15 L70 25 L75 20 L100 20" fill="none" stroke="#5b5d74" stroke-width="1.5"></path>
+</svg>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-sm mt-base pt-base border-t border-outline-variant">
+<div>
+<p class="font-label-caps text-label-caps text-secondary">SpO2</p>
+<p class="font-data-mono text-data-mono text-on-surface">94%</p>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-secondary">BP</p>
+<p class="font-data-mono text-data-mono text-on-surface">140/90</p>
+</div>
+</div>
+</div>
+<!-- Patient Card: STABLE -->
+<div class="bg-surface border border-outline-variant rounded p-sm shadow-sm">
+<div class="flex justify-between items-start mb-base">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface">BED 412 • L. CHEN</p>
+<p class="text-[10px] text-secondary">Patient ID: 9012-Y</p>
+</div>
+<span class="px-xs py-[2px] border border-outline-variant text-secondary font-label-caps text-[10px] rounded">STABLE</span>
+</div>
+<div class="flex items-center justify-between py-xs">
+<div class="flex items-baseline gap-xs">
+<span class="font-display-critical text-display-critical text-on-surface">72</span>
+<span class="font-label-caps text-label-caps text-secondary">BPM</span>
+</div>
+<div class="h-12 w-32">
+<svg class="w-full h-full opacity-40" viewbox="0 0 100 40">
+<path d="M0 20 L20 20 L25 10 L35 30 L40 20 L100 20" fill="none" stroke="#2B2D42" stroke-width="1.5"></path>
+</svg>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-sm mt-base pt-base border-t border-outline-variant">
+<div>
+<p class="font-label-caps text-label-caps text-secondary">SpO2</p>
+<p class="font-data-mono text-data-mono text-on-surface">98%</p>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-secondary">BP</p>
+<p class="font-data-mono text-data-mono text-on-surface">120/80</p>
+</div>
+</div>
+</div>
+<!-- Repeatable Stable Cards -->
+<div class="bg-surface border border-outline-variant rounded p-sm shadow-sm">
+<div class="flex justify-between items-start mb-base">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface">BED 415 • M. GOMEZ</p>
+<p class="text-[10px] text-secondary">Patient ID: 1104-B</p>
+</div>
+<span class="px-xs py-[2px] border border-outline-variant text-secondary font-label-caps text-[10px] rounded">STABLE</span>
+</div>
+<div class="flex items-center justify-between py-xs">
+<div class="flex items-baseline gap-xs">
+<span class="font-display-critical text-display-critical text-on-surface">68</span>
+<span class="font-label-caps text-label-caps text-secondary">BPM</span>
+</div>
+<div class="h-12 w-32">
+<svg class="w-full h-full opacity-40" viewbox="0 0 100 40">
+<path d="M0 20 L20 20 L25 10 L35 30 L40 20 L100 20" fill="none" stroke="#2B2D42" stroke-width="1.5"></path>
+</svg>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-sm mt-base pt-base border-t border-outline-variant">
+<div>
+<p class="font-label-caps text-label-caps text-secondary">SpO2</p>
+<p class="font-data-mono text-data-mono text-on-surface">99%</p>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-secondary">BP</p>
+<p class="font-data-mono text-data-mono text-on-surface">118/75</p>
+</div>
+</div>
+</div>
+<div class="bg-surface border border-outline-variant rounded p-sm shadow-sm">
+<div class="flex justify-between items-start mb-base">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface">BED 420 • A. PATEL</p>
+<p class="text-[10px] text-secondary">Patient ID: 7723-R</p>
+</div>
+<span class="px-xs py-[2px] border border-outline-variant text-secondary font-label-caps text-[10px] rounded">STABLE</span>
+</div>
+<div class="flex items-center justify-between py-xs">
+<div class="flex items-baseline gap-xs">
+<span class="font-display-critical text-display-critical text-on-surface">82</span>
+<span class="font-label-caps text-label-caps text-secondary">BPM</span>
+</div>
+<div class="h-12 w-32">
+<svg class="w-full h-full opacity-40" viewbox="0 0 100 40">
+<path d="M0 20 L20 20 L25 10 L35 30 L40 20 L100 20" fill="none" stroke="#2B2D42" stroke-width="1.5"></path>
+</svg>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-sm mt-base pt-base border-t border-outline-variant">
+<div>
+<p class="font-label-caps text-label-caps text-secondary">SpO2</p>
+<p class="font-data-mono text-data-mono text-on-surface">97%</p>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-secondary">BP</p>
+<p class="font-data-mono text-data-mono text-on-surface">122/82</p>
+</div>
+</div>
+</div>
+<!-- Add More Card -->
+<button class="border-2 border-dashed border-outline-variant rounded p-sm flex flex-col items-center justify-center text-secondary hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-headline-lg" data-icon="add_circle">add_circle</span>
+<span class="font-label-caps text-label-caps mt-xs">ASSIGN NEW PATIENT</span>
+</button>
+</div>
+<!-- Urgent Actions Sidebar / Section -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-md">
+<div class="lg:col-span-2 space-y-md">
+<div class="bg-surface-container-low rounded border border-outline-variant p-md">
+<h3 class="font-label-caps text-label-caps text-secondary mb-md">SYSTEM WAVEFORM AGGREGATE (LATEST 60s)</h3>
+<div class="h-32 bg-surface rounded border border-outline-variant relative overflow-hidden">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 1000 100">
+<path class="waveform-path" d="M0 50 Q 25 20, 50 50 T 100 50 T 150 50 T 200 50 T 250 50 T 300 50 T 350 50 T 400 50 T 450 50 T 500 50 T 550 50 T 600 50 T 650 50 T 700 50 T 750 50 T 800 50 T 850 50 T 900 50 T 950 50 T 1000 50" fill="none" opacity="0.3" stroke="#2B2D42" stroke-width="1"></path>
+<path class="waveform-path" d="M0 50 L50 50 L60 20 L75 80 L85 50 L150 50 L160 10 L180 90 L195 50 L250 50 L260 20 L275 80 L285 50 L350 50 L360 10 L380 90 L395 50 L450 50 L460 20 L475 80 L485 50 L550 50 L560 10 L580 90 L595 50 L650 50 L660 20 L675 80 L685 50 L750 50 L760 10 L780 90 L795 50 L850 50 L860 20 L875 80 L885 50 L950 50 L960 10 L980 90 L995 50" fill="none" stroke="#ac001e" stroke-width="1.5"></path>
+</svg>
+</div>
+</div>
+</div>
+<div class="space-y-md">
+<div class="bg-surface border border-outline-variant rounded p-md">
+<h3 class="font-label-caps text-label-caps text-primary flex items-center gap-xs mb-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="priority_high">priority_high</span>
+                            URGENT ACTIONS REQUIRED
+                        </h3>
+<ul class="space-y-xs">
+<li class="p-sm bg-primary-container text-on-primary-container rounded flex flex-col gap-xs">
+<div class="flex justify-between items-start">
+<span class="font-bold">Bed 402: Tachycardia Alert</span>
+<span class="text-[10px] opacity-80">2m ago</span>
+</div>
+<div class="flex gap-sm mt-xs">
+<button class="flex-grow py-xs bg-white text-primary font-label-caps text-[10px] rounded">DISPATCH TEAM</button>
+<button class="flex-grow py-xs border border-white text-white font-label-caps text-[10px] rounded">ACKNOWLEDGE</button>
+</div>
+</li>
+<li class="p-sm bg-surface-container-high border border-outline-variant rounded flex justify-between items-center">
+<div>
+<p class="font-label-caps text-label-caps">Bed 408: Lead Disconnect</p>
+<p class="text-[10px] text-secondary">Check electrode placement</p>
+</div>
+<button class="p-xs hover:bg-surface transition-colors">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle">check_circle</span>
+</button>
+</li>
+<li class="p-sm bg-surface-container-high border border-outline-variant rounded flex justify-between items-center">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface">Bed 412: Battery Low</p>
+<p class="text-[10px] text-secondary">Portable monitor V-88</p>
+</div>
+<button class="p-xs hover:bg-surface transition-colors">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle">check_circle</span>
+</button>
+</li>
+</ul>
+</div>
+<div class="bg-surface border border-outline-variant rounded p-md">
+<h3 class="font-label-caps text-label-caps text-secondary mb-sm">COMMUNICATION</h3>
+<div class="flex gap-xs">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest border border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px] text-secondary" data-icon="person">person</span>
+</div>
+<div class="flex-grow bg-surface-container-low border border-outline-variant rounded px-sm py-xs text-[12px] text-secondary">
+                                "Team 2 dispatched to Bed 402."
+                            </div>
+</div>
+<input class="w-full mt-sm border-outline-variant bg-surface-container-lowest text-body-md rounded h-10" placeholder="Type a message to nursing..." type="text"/>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Emergency Action -->
+<div class="fixed bottom-lg right-lg z-50">
+<button class="w-16 h-16 bg-primary rounded-full shadow-lg flex items-center justify-center text-on-primary hover:scale-105 active:scale-95 transition-transform duration-200 group">
+<span class="material-symbols-outlined text-[32px]" data-icon="emergency">emergency</span>
+<span class="absolute right-full mr-md py-xs px-sm bg-inverse-surface text-inverse-on-surface text-label-caps font-label-caps rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">GLOBAL ALARM</span>
+</button>
+</div>
+</body></html>

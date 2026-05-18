@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#c4c4df",
+                    "on-secondary-fixed": "#181a2e",
+                    "surface-bright": "#f5fafc",
+                    "on-background": "#171c1e",
+                    "secondary-container": "#ddddf9",
+                    "surface": "#f5fafc",
+                    "tertiary-fixed": "#d7e3fa",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-container": "#e8efff",
+                    "on-tertiary-fixed-variant": "#3c475a",
+                    "on-primary-fixed-variant": "#930018",
+                    "surface-container-highest": "#dee3e5",
+                    "primary-fixed": "#ffdad7",
+                    "on-primary-container": "#ffeae8",
+                    "background": "#f5fafc",
+                    "surface-tint": "#bf0022",
+                    "on-primary-fixed": "#410005",
+                    "inverse-on-surface": "#ecf1f3",
+                    "surface-container-low": "#eff4f6",
+                    "on-surface-variant": "#5d3f3d",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#171c1e",
+                    "error-container": "#ffdad6",
+                    "tertiary-container": "#616d81",
+                    "on-tertiary-fixed": "#101c2c",
+                    "on-error": "#ffffff",
+                    "on-secondary-container": "#5f6178",
+                    "tertiary-fixed-dim": "#bbc7dd",
+                    "secondary": "#5b5d74",
+                    "on-tertiary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed": "#e0e0fc",
+                    "on-secondary-fixed-variant": "#43455b",
+                    "inverse-surface": "#2c3133",
+                    "surface-container": "#eaeff1",
+                    "tertiary": "#495567",
+                    "outline": "#926e6c",
+                    "primary-container": "#d90429",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed-dim": "#ffb3af",
+                    "surface-container-high": "#e4e9eb",
+                    "error": "#ba1a1a",
+                    "surface-dim": "#d6dbdd",
+                    "inverse-primary": "#ffb3af",
+                    "primary": "#ac001e",
+                    "outline-variant": "#e7bcba",
+                    "surface-variant": "#dee3e5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "gutter-mobile": "12px",
+                    "md": "24px",
+                    "margin-mobile": "16px",
+                    "xs": "4px",
+                    "base": "8px",
+                    "sm": "12px",
+                    "xl": "64px",
+                    "lg": "40px"
+            },
+            "fontFamily": {
+                    "display-critical": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "data-mono": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "display-critical": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "data-mono": ["20px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pulse-ring {
+            box-shadow: 0 0 0 0 rgba(172, 0, 30, 0.4);
+            animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.33); }
+            80%, 100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="w-full top-0 sticky z-50 bg-surface border-b border-outline-variant flex justify-between items-center h-16 px-md">
+<div class="flex items-center gap-base">
+<span class="font-display-critical text-headline-lg text-primary uppercase tracking-tighter">VIGILANT CORE</span>
+<div class="h-6 w-[1px] bg-outline-variant mx-sm"></div>
+<span class="font-label-caps text-label-caps text-secondary">SUPPORT PORTAL</span>
+</div>
+<div class="flex items-center gap-md">
+<div class="hidden md:flex gap-md">
+<button class="font-body-md text-on-surface-variant hover:text-primary transition-colors">Documentation</button>
+<button class="font-body-md text-primary font-bold border-b-2 border-primary">Engagement Hub</button>
+</div>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-primary" data-icon="emergency">emergency</span>
+<img alt="Chief Medical Officer" class="w-8 h-8 rounded-full border border-outline-variant object-cover" data-alt="A professional portrait of a senior medical director in a clean, modern clinical setting. The lighting is bright and high-key, emphasizing clinical precision. The background is a soft-focus laboratory or hospital corridor in silk white and slate tones, matching the vigilant and authoritative brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCA20CoF1G0NGAzg4KRBp0Eqz5vySY5WABM-GXMCf-hdbmAAeszXohruQ-jJ5IlweQ-0ZIvElzcFcFCMng5grZb283ykfLnk7Y6uq1tLX4w49ihqQgFpacVAeclq4miFnnvKYI86IzPBN6aRAGcoLJvZJyROrWrYfbeMvFev3Xi8_EtbQd3aARDlZRdT67sYmRscLiMphd-DhxbVryLdGCrjKYhObnOrS1wmYrQ1BW18iD88W5TX4_0RrTnWyxDqx8WPKxm05hEdKo"/>
+</div>
+</div>
+</header>
+<div class="flex">
+<!-- Sidebar Navigation -->
+<aside class="h-[calc(100vh-64px)] w-64 left-0 sticky hidden md:flex flex-col py-md border-r border-outline-variant bg-surface-container-low">
+<div class="px-md mb-lg">
+<div class="flex items-center gap-sm mb-xs">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<span class="font-headline-md text-headline-md text-on-surface">Terminal 04</span>
+</div>
+<span class="font-label-caps text-label-caps text-secondary uppercase">Active Monitoring</span>
+</div>
+<nav class="flex-1 flex flex-col gap-xs px-sm">
+<button class="flex items-center gap-sm px-md py-sm rounded text-secondary hover:translate-x-1 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="monitor_heart">monitor_heart</span>
+<span class="font-label-caps text-label-caps uppercase">Live Monitoring</span>
+</button>
+<button class="flex items-center gap-sm px-md py-sm rounded text-secondary hover:translate-x-1 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-caps text-label-caps uppercase">Patient Directory</span>
+</button>
+<button class="flex items-center gap-sm px-md py-sm rounded text-secondary hover:translate-x-1 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="emergency_home">emergency_home</span>
+<span class="font-label-caps text-label-caps uppercase">Critical Alerts</span>
+</button>
+<button class="flex items-center gap-sm px-md py-sm rounded bg-primary text-on-primary font-bold shadow-sm">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span class="font-label-caps text-label-caps uppercase">Support Hub</span>
+</button>
+<button class="flex items-center gap-sm px-md py-sm rounded text-secondary hover:translate-x-1 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="admin_panel_settings">admin_panel_settings</span>
+<span class="font-label-caps text-label-caps uppercase">System Admin</span>
+</button>
+</nav>
+<div class="px-sm pt-md border-t border-outline-variant">
+<button class="w-full bg-primary text-on-primary py-sm rounded-lg font-bold flex items-center justify-center gap-xs hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px]" data-icon="emergency">emergency</span>
+                    EMERGENCY CALL
+                </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 p-gutter-mobile md:p-md lg:p-xl max-w-7xl mx-auto w-full">
+<div class="mb-lg">
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Support &amp; Engagement Hub</h1>
+<p class="font-body-md text-on-surface-variant max-w-2xl">Access technical resources for your Heart-Guard device and maintain continuous communication with your monitoring team for non-urgent matters.</p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-md">
+<!-- Left Section: FAQ Accordion -->
+<section class="lg:col-span-7 space-y-md">
+<div class="bg-surface-container-lowest p-md border border-outline/10 rounded shadow-sm">
+<div class="flex items-center justify-between mb-md">
+<h2 class="font-headline-md text-headline-md text-on-surface">Knowledge Base</h2>
+<div class="relative w-1/2">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-secondary" data-icon="search">search</span>
+<input class="w-full pl-xl pr-md py-sm bg-surface-container-low border border-outline-variant rounded font-body-md focus:ring-1 focus:ring-primary focus:border-primary transition-all" placeholder="Search Heart-Guard questions..." type="text"/>
+</div>
+</div>
+<!-- FAQ Items -->
+<div class="space-y-sm">
+<!-- Accordion Item 1 -->
+<div class="border border-outline-variant rounded overflow-hidden">
+<button class="w-full flex items-center justify-between p-md bg-surface hover:bg-surface-container-high transition-colors text-left">
+<span class="font-body-md font-semibold text-on-surface">How do I calibrate my Heart-Guard sensor daily?</span>
+<span class="material-symbols-outlined text-secondary" data-icon="expand_more">expand_more</span>
+</button>
+<div class="px-md py-sm bg-surface-container-lowest border-t border-outline-variant">
+<p class="font-body-md text-on-surface-variant">To calibrate, ensure the sensor is clean and firmly placed. Open the Vigilant Core app, navigate to 'Device Settings', and select 'Force Calibration'. Remain still for 30 seconds while the Slate-colored pulse indicator is active.</p>
+</div>
+</div>
+<!-- Accordion Item 2 -->
+<div class="border border-outline-variant rounded overflow-hidden">
+<button class="w-full flex items-center justify-between p-md bg-surface hover:bg-surface-container-high transition-colors text-left">
+<span class="font-body-md font-semibold text-on-surface">What does the Signal Red 'Pulse' indicate?</span>
+<span class="material-symbols-outlined text-secondary" data-icon="expand_more">expand_more</span>
+</button>
+<div class="hidden px-md py-sm bg-surface-container-lowest border-t border-outline-variant">
+<p class="font-body-md text-on-surface-variant">A Signal Red pulse indicates a critical variance in your metrics. The device is automatically transmitting high-fidelity data to your clinical team. Stay calm and follow the on-screen instructions.</p>
+</div>
+</div>
+<!-- Accordion Item 3 -->
+<div class="border border-outline-variant rounded overflow-hidden">
+<button class="w-full flex items-center justify-between p-md bg-surface hover:bg-surface-container-high transition-colors text-left">
+<span class="font-body-md font-semibold text-on-surface">Battery life and charging guidelines</span>
+<span class="material-symbols-outlined text-secondary" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+</div>
+<div class="mt-md p-md bg-secondary-container rounded flex items-center gap-md">
+<div class="w-12 h-12 bg-on-secondary-container rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-surface" data-icon="menu_book">menu_book</span>
+</div>
+<div>
+<h4 class="font-body-md font-bold text-on-secondary-container">Full PDF Manual</h4>
+<p class="font-label-caps text-label-caps text-on-secondary-container/80 uppercase">Last Updated: Oct 2023</p>
+</div>
+<button class="ml-auto flex items-center gap-xs font-label-caps text-label-caps font-bold text-on-secondary-container hover:underline">
+<span class="material-symbols-outlined" data-icon="download">download</span> DOWNLOAD
+                            </button>
+</div>
+</div>
+</section>
+<!-- Right Section: Clinician Feedback -->
+<section class="lg:col-span-5 space-y-md">
+<div class="bg-surface-container-lowest border border-outline/10 rounded shadow-sm flex flex-col h-full">
+<div class="p-md border-b border-outline-variant">
+<h2 class="font-headline-md text-headline-md text-on-surface">Clinician Feedback</h2>
+<p class="font-label-caps text-label-caps text-secondary uppercase">Non-Urgent Communication Only</p>
+</div>
+<div class="flex-1 p-md space-y-md overflow-y-auto max-h-[500px]">
+<!-- Feedback Thread 1 -->
+<div class="space-y-sm">
+<div class="bg-surface-container-low p-sm rounded border border-outline-variant max-w-[90%]">
+<p class="font-body-md text-on-surface">I've noticed some slight skin irritation where the sensor is placed. Is there a specific medical adhesive I should use?</p>
+<div class="flex justify-between mt-xs">
+<span class="font-label-caps text-label-caps text-secondary">YESTERDAY, 09:15 AM</span>
+</div>
+</div>
+<div class="flex gap-sm items-start ml-lg">
+<div class="bg-tertiary-container/10 p-sm rounded border border-tertiary-container/30 flex-1">
+<div class="flex items-center gap-xs mb-xs">
+<span class="material-symbols-outlined text-primary text-[16px]" data-icon="verified" data-weight="fill">verified</span>
+<span class="font-label-caps text-label-caps text-primary uppercase">DR. SARAH CHEN (CMO)</span>
+</div>
+<p class="font-body-md text-on-surface-variant">Hello. Please try shifting the sensor slightly and using a hypoallergenic barrier wipe before application. I've sent a recommended product list to your email.</p>
+<span class="font-label-caps text-label-caps text-secondary mt-xs block uppercase">TODAY, 10:30 AM</span>
+</div>
+</div>
+</div>
+<!-- Feedback Thread 2 -->
+<div class="space-y-sm">
+<div class="bg-surface-container-low p-sm rounded border border-outline-variant max-w-[90%]">
+<p class="font-body-md text-on-surface">Confirming my activity levels for today's data—I did 30 mins of light walking as discussed.</p>
+<span class="font-label-caps text-label-caps text-secondary mt-xs block uppercase">TODAY, 02:45 PM</span>
+</div>
+<div class="ml-lg bg-surface-container p-sm rounded border border-outline-variant/30 italic">
+<p class="font-body-md text-on-surface-variant/70">Awaiting clinician review...</p>
+</div>
+</div>
+</div>
+<!-- Comment Input Area -->
+<div class="p-md bg-surface-container-low border-t border-outline-variant">
+<label class="font-label-caps text-label-caps text-secondary mb-xs block uppercase">New Note</label>
+<div class="relative">
+<textarea class="w-full p-sm bg-surface-container-lowest border border-outline-variant rounded font-body-md focus:ring-2 focus:ring-primary focus:border-primary transition-all resize-none" placeholder="Type your non-urgent question or observation here..." rows="3"></textarea>
+</div>
+<div class="flex justify-between items-center mt-sm">
+<span class="font-label-caps text-[10px] text-error flex items-center gap-xs">
+<span class="material-symbols-outlined text-[12px]" data-icon="report">report</span>
+                                    DO NOT USE FOR EMERGENCIES
+                                </span>
+<button class="bg-on-background text-surface px-lg py-sm rounded-lg font-bold font-label-caps text-label-caps hover:bg-primary transition-colors uppercase">
+                                    Send Message
+                                </button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Bottom Support Stats / Engagement -->
+<div class="mt-lg grid grid-cols-1 md:grid-cols-3 gap-md">
+<div class="bg-surface border border-outline-variant p-md rounded flex items-center gap-md">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="speed">speed</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-secondary uppercase">Average Response Time</p>
+<p class="font-data-mono text-data-mono text-on-surface">2.4 HOURS</p>
+</div>
+</div>
+<div class="bg-surface border border-outline-variant p-md rounded flex items-center gap-md">
+<div class="w-10 h-10 bg-secondary-container rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="verified_user">verified_user</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-secondary uppercase">System Uptime</p>
+<p class="font-data-mono text-data-mono text-on-surface">99.98%</p>
+</div>
+</div>
+<div class="bg-surface border border-outline-variant p-md rounded flex items-center gap-md">
+<div class="w-10 h-10 bg-tertiary-fixed rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-fixed" data-icon="favorite">favorite</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-secondary uppercase">Engagement Level</p>
+<p class="font-data-mono text-data-mono text-on-surface">OPTIMAL</p>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Mobile Navigation -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface border-t border-outline-variant flex justify-around py-sm z-50">
+<button class="flex flex-col items-center text-secondary">
+<span class="material-symbols-outlined" data-icon="monitor_heart">monitor_heart</span>
+<span class="text-[10px] font-label-caps uppercase">Live</span>
+</button>
+<button class="flex flex-col items-center text-primary font-bold">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span class="text-[10px] font-label-caps uppercase">Support</span>
+</button>
+<button class="flex flex-col items-center text-secondary">
+<span class="material-symbols-outlined" data-icon="emergency">emergency</span>
+<span class="text-[10px] font-label-caps uppercase">SOS</span>
+</button>
+<button class="flex flex-col items-center text-secondary">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-[10px] font-label-caps uppercase">System</span>
+</button>
+</nav>
+</body></html>

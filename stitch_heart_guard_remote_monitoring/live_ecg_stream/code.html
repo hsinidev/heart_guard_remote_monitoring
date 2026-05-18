@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HEART-GUARD | Real-time Stream</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "secondary-fixed-dim": "#c4c4df",
+                  "error": "#ba1a1a",
+                  "surface-container-highest": "#dee3e5",
+                  "on-tertiary": "#ffffff",
+                  "surface-container-high": "#e4e9eb",
+                  "surface-container-low": "#eff4f6",
+                  "error-container": "#ffdad6",
+                  "on-secondary-container": "#5f6178",
+                  "surface-container-lowest": "#ffffff",
+                  "on-primary-fixed-variant": "#930018",
+                  "on-secondary": "#ffffff",
+                  "primary": "#ac001e",
+                  "on-primary-fixed": "#410005",
+                  "secondary": "#5b5d74",
+                  "secondary-container": "#ddddf9",
+                  "on-tertiary-fixed": "#101c2c",
+                  "secondary-fixed": "#e0e0fc",
+                  "tertiary-fixed": "#d7e3fa",
+                  "primary-fixed": "#ffdad7",
+                  "on-primary": "#ffffff",
+                  "inverse-primary": "#ffb3af",
+                  "tertiary": "#495567",
+                  "primary-fixed-dim": "#ffb3af",
+                  "background": "#f5fafc",
+                  "tertiary-fixed-dim": "#bbc7dd",
+                  "surface-tint": "#bf0022",
+                  "on-error": "#ffffff",
+                  "primary-container": "#d90429",
+                  "on-tertiary-container": "#e8efff",
+                  "on-primary-container": "#ffeae8",
+                  "surface-bright": "#f5fafc",
+                  "inverse-on-surface": "#ecf1f3",
+                  "outline": "#926e6c",
+                  "tertiary-container": "#616d81",
+                  "outline-variant": "#e7bcba",
+                  "surface-container": "#eaeff1",
+                  "on-secondary-fixed-variant": "#43455b",
+                  "on-surface": "#171c1e",
+                  "surface": "#f5fafc",
+                  "on-background": "#171c1e",
+                  "on-error-container": "#93000a",
+                  "on-tertiary-fixed-variant": "#3c475a",
+                  "surface-dim": "#d6dbdd",
+                  "surface-variant": "#dee3e5",
+                  "on-surface-variant": "#5d3f3d",
+                  "on-secondary-fixed": "#181a2e",
+                  "inverse-surface": "#2c3133"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.125rem",
+                  "lg": "0.25rem",
+                  "xl": "0.5rem",
+                  "full": "0.75rem"
+          },
+          "spacing": {
+                  "sm": "12px",
+                  "xs": "4px",
+                  "margin-mobile": "16px",
+                  "md": "24px",
+                  "gutter-mobile": "12px",
+                  "lg": "40px",
+                  "xl": "64px",
+                  "base": "8px"
+          },
+          "fontFamily": {
+                  "body-md": ["Inter"],
+                  "label-caps": ["Inter"],
+                  "data-mono": ["Inter"],
+                  "headline-lg": ["Inter"],
+                  "headline-md": ["Inter"],
+                  "body-lg": ["Inter"],
+                  "display-critical": ["Inter"]
+          },
+          "fontSize": {
+                  "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                  "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                  "data-mono": ["20px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                  "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                  "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                  "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                  "display-critical": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    @keyframes pulse-ring {
+      0% { transform: scale(0.33); opacity: 0.8; }
+      80%, 100% { transform: scale(1.5); opacity: 0; }
+    }
+    .pulse-effect::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: inherit;
+      animation: pulse-ring 1.25s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+    }
+    .wave-bg {
+      background-image: linear-gradient(to right, rgba(43, 45, 66, 0.05) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(43, 45, 66, 0.05) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<header class="fixed top-0 w-full z-50 bg-surface border-b border-secondary/10 h-16">
+<div class="flex items-center justify-between px-margin-mobile h-full w-full max-w-screen-xl mx-auto">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary" data-icon="monitor_heart">monitor_heart</span>
+<h1 class="font-display-critical text-headline-md tracking-tighter text-primary">HEART-GUARD</h1>
+</div>
+<div class="flex items-center gap-sm">
+<div class="flex items-center gap-xs px-sm py-xs bg-surface-container rounded-full">
+<div class="w-2 h-2 rounded-full bg-secondary pulse-effect relative"></div>
+<span class="font-label-caps text-secondary text-[10px]">SYNC ACTIVE</span>
+</div>
+<button class="material-symbols-outlined text-secondary hover:bg-surface-container-high p-base rounded-full transition-colors" data-icon="emergency_home">emergency_home</button>
+</div>
+</div>
+</header>
+<main class="pt-20 pb-24 px-margin-mobile max-w-screen-xl mx-auto space-y-md">
+<section class="grid grid-cols-1 md:grid-cols-12 gap-md">
+<div class="md:col-span-8 space-y-md">
+<div class="bg-surface-container-lowest border border-secondary/10 rounded overflow-hidden shadow-sm relative">
+<div class="p-sm flex justify-between items-center border-b border-secondary/5">
+<span class="font-label-caps text-secondary">LIVE ECG WAVEFORM - LEAD II</span>
+<div class="flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-primary pulse-effect relative"></span>
+<span class="font-label-caps text-primary">LIVE</span>
+</div>
+</div>
+<div class="h-64 wave-bg relative flex items-center overflow-hidden">
+<svg class="absolute inset-0 w-full h-full" preserveaspectratio="none" viewbox="0 0 1000 200">
+<path class="opacity-80" d="M0,100 L50,100 L60,110 L70,30 L80,170 L90,100 L140,100 L150,95 L160,100 L210,100 L220,110 L230,30 L240,170 L250,100 L300,100 L310,95 L320,100 L370,100 L380,110 L390,30 L400,170 L410,100 L460,100 L470,95 L480,100 L530,100 L540,110 L550,30 L560,170 L570,100 L620,100 L630,95 L640,100 L690,100 L700,110 L710,30 L720,170 L730,100 L780,100 L790,95 L800,100 L850,100 L860,110 L870,30 L880,170 L890,100 L940,100 L950,95 L1000,100" fill="none" stroke="#2B2D42" stroke-width="2"></path>
+</svg>
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-surface-container-lowest/80 pointer-events-none"></div>
+</div>
+<div class="p-sm flex justify-between bg-surface-container-low border-t border-secondary/10">
+<div class="flex gap-md">
+<div>
+<p class="font-label-caps text-secondary text-[10px]">GAIN</p>
+<p class="font-data-mono text-on-surface">10mm/mV</p>
+</div>
+<div>
+<p class="font-label-caps text-secondary text-[10px]">SPEED</p>
+<p class="font-data-mono text-on-surface">25mm/s</p>
+</div>
+</div>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="bolt">bolt</span>
+<span class="font-label-caps text-secondary">FILTER ON</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-sm">
+<div class="bg-surface-container-lowest border border-secondary/10 p-sm rounded">
+<p class="font-label-caps text-secondary">O2 SAT</p>
+<div class="flex items-baseline gap-xs mt-xs">
+<span class="font-display-critical text-headline-lg text-on-surface">98</span>
+<span class="font-label-caps text-secondary">%</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-secondary/10 p-sm rounded">
+<p class="font-label-caps text-secondary">SYS/DIA</p>
+<div class="flex items-baseline gap-xs mt-xs">
+<span class="font-display-critical text-headline-lg text-on-surface">120/80</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-secondary/10 p-sm rounded">
+<p class="font-label-caps text-secondary">RESP</p>
+<div class="flex items-baseline gap-xs mt-xs">
+<span class="font-display-critical text-headline-lg text-on-surface">16</span>
+<span class="font-label-caps text-secondary">RPM</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-secondary/10 p-sm rounded">
+<p class="font-label-caps text-secondary">TEMP</p>
+<div class="flex items-baseline gap-xs mt-xs">
+<span class="font-display-critical text-headline-lg text-on-surface">98.6</span>
+<span class="font-label-caps text-secondary">°F</span>
+</div>
+</div>
+</div>
+</div>
+<div class="md:col-span-4 space-y-md">
+<div class="bg-surface-container-lowest border border-secondary/10 p-md rounded shadow-sm flex flex-col items-center justify-center text-center">
+<p class="font-label-caps text-secondary">HEART RATE</p>
+<div class="my-sm relative">
+<span class="font-display-critical text-[80px] leading-none text-secondary">72</span>
+<div class="absolute -right-6 top-2">
+<span class="material-symbols-outlined text-primary text-xl pulse-effect relative bg-primary rounded-full p-[2px] text-white" data-icon="favorite" data-weight="fill">favorite</span>
+</div>
+</div>
+<p class="font-label-caps text-secondary tracking-widest">BPM / NORMAL</p>
+<div class="w-full mt-md pt-md border-t border-secondary/5">
+<div class="flex justify-between items-center px-sm">
+<span class="font-label-caps text-secondary">STATUS</span>
+<span class="text-xs font-bold text-on-surface px-2 py-1 bg-secondary-container rounded-full">STABLE</span>
+</div>
+</div>
+</div>
+<div class="bg-primary/5 border-2 border-primary/20 p-md rounded flex flex-col gap-sm">
+<div class="flex justify-between items-center">
+<span class="font-label-caps text-primary">CRITICAL EVENT OVERRIDE</span>
+<div class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-secondary/20 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</div>
+</div>
+<p class="text-[11px] text-primary/80 font-body-md">Enabling override will bypass secondary validation and instantly trigger a Level 1 Emergency Dispatch signal.</p>
+<button class="w-full py-sm bg-primary text-white font-label-caps rounded hover:bg-primary-container transition-colors flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined" data-icon="emergency_share">emergency_share</span>
+            MANUAL DISPATCH
+          </button>
+</div>
+<div class="bg-surface-container-lowest border border-secondary/10 rounded overflow-hidden">
+<div class="p-sm bg-surface-container-low border-b border-secondary/10 flex justify-between items-center">
+<span class="font-label-caps text-secondary">PATIENT CONTEXT</span>
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="info">info</span>
+</div>
+<div class="p-sm flex items-center gap-sm">
+<img alt="Patient Profile" class="w-12 h-12 rounded-full object-cover grayscale opacity-80" data-alt="A clinical, close-up portrait of an elderly patient in a modern medical setting. The lighting is soft and neutral, typical of a professional healthcare environment. The image uses a clean, high-contrast style with muted tones to maintain a serious and professional medical focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKTLTrbzsjzq-bi4vH_pxFT11l6JneW2jUY1OEsuyuR8MJTkGvBE186EXLsZStxkZy01saTOPd3m9HAUxsXgXoq5QnXPn5lIzqV8xuTQGlpqK7DsvfdMxHCLc2dn9MMyoDeQtY86H6_vJY8DMPxrbrMF9-yWAv-09JnUJk9idUH0ZYjScjM9XDcZDzu7taXk-ZC2YvMbO86Iiy0fzbAt2lCNLwR6qbUUI1xbvlre24UzKLrsiC1YqSA7YSqM7H9xgtCdArB8VRKwk"/>
+<div>
+<p class="font-headline-md text-sm text-on-surface">Johnathan Doe</p>
+<p class="text-[11px] text-secondary">ID: HG-8829 | Age: 68</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center py-2 px-2 pb-safe bg-surface-container-low border-t border-secondary/10 z-50">
+<a class="flex flex-col items-center justify-center text-primary font-bold" href="#">
+<span class="material-symbols-outlined" data-icon="waveform" data-weight="fill">waves</span>
+<span class="font-label-caps text-[10px]">Live</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary hover:bg-surface-container-high transition-colors p-xs rounded" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-label-caps text-[10px]">Logs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary hover:bg-surface-container-high transition-colors p-xs rounded" href="#">
+<span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
+<span class="font-label-caps text-[10px]">Trends</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary hover:bg-surface-container-high transition-colors p-xs rounded" href="#">
+<span class="material-symbols-outlined" data-icon="emergency_share">emergency_share</span>
+<span class="font-label-caps text-[10px]">Dispatch</span>
+</a>
+</nav>
+</body></html>
